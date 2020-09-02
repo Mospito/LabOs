@@ -27,7 +27,7 @@ System.out.println("\n You enter " + num);
  /*___________________________________________*/
 
 Random randomGenerator = new Random();
-int randomInt = randomGenerator.nextInt(10);
+int randomInt = randomGenerator.nextInt(100);
  /*___________________________________________*/
 
 
