@@ -7,7 +7,8 @@ import javax.sound.midi.Sequence;
 class RunRun implements Runnable
 { 
     private int tmp;
-    private int sum=0;
+    private int[] sum;
+    private String[] ch;
     //Get Data
     public  int SeeInt()
     {
@@ -33,22 +34,34 @@ class RunRun implements Runnable
             num[1] = 1;
             num[2] = 2;
             num[3] = 2;
+
+            this.sum = new int[this.tmp];
+            this.sum [0] = 1;
+            this.sum [1] = 1;
+            this.sum [2] = 2;
+            this.sum [3] = 2;
             //6135512026
             for(int i=4; i<this.tmp; i++)
             {
+
                if(i > 3)
                {
                     if( i % 3 == 0)    //if n is a multiple of 3
                     {
                         num[i] = num[i-1];
+                        
                     }
                     else //otherwise
                     {
                         num[i] = num[i-2]+num[i-2]-1;
+                        
                     }
+                    this.sum[i] = num[i];
                }
-               this.sum = num[i];  //Set Value of Sum  = num[i]
+               
+                 //Set Value of Sum  = num[i]
               //6135512026
+              
             }
             
             
@@ -62,7 +75,8 @@ class RunRun implements Runnable
             // Displaying the thread that is running 
             System.out.println ("Thread ID: " + 
                                 Thread.currentThread().getId() + 
-                                " is running" +"___"+"Ans. ----> "+this.sum ); 
+                                " is running" +"___"+"Ans. ----> "+ java.util.Arrays.toString(this.sum) ); 
+                                
   
          } 
         //6135512026
